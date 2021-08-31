@@ -1,0 +1,22 @@
+.fromTo {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  margin-right: 20px;
+}
+.cities {
+  color: #a0b0b9;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  align-items: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.time {
+  color: #4a4a4a;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}

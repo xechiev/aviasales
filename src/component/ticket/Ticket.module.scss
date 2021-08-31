@@ -1,0 +1,26 @@
+.ticket {
+  width: 502px;
+  height: 184px;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(83, 65, 65, 0.1);
+  border-radius: 5px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px 0 20px;
+}
+.price {
+  color: #2196f3;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+}
+.log {
+}
+.plane {
+}
+.info {
+  display: flex;
+  flex-direction: column;
+}
