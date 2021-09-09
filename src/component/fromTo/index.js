@@ -1,2 +1,3 @@
-import FromTo from "./FromTo";
+import FromTo from './FromTo';
+
 export default FromTo;

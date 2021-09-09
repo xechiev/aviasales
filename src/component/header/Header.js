@@ -4,8 +4,8 @@ import classes from './Header.module.scss';
 
 export default function Header() {
   return (
-    <div className={classes.header}> 
+    <div className={classes.header}>
       <img src={Logo} alt="header_logo" className={classes.logo} />
     </div>
-  )
+  );
 }

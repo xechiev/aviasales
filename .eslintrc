@@ -24,7 +24,9 @@
       "react"
   ],
   "rules": {
-      "arrow-body-style": ["error", "always"],
+      "react/prop-types": 0,
+      "comma-dangle": 0,
+      "arrow-body-style": ["error", "as-needed"],
       "no-return-await": "error",
       "no-underscore-dangle": 0,
       "no-console":0,

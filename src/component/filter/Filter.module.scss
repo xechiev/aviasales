@@ -20,3 +20,38 @@
   display: flex;
   flex-direction: column;
 }
+.option {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.check {
+  padding-left: 2.4em;
+}
+.value {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 20px;
+  color: #4a4a4a;
+}
+.checkInput {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.checkBox {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #9abbce;
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin-left: -1.3em;
+}
+.checkInput:checked + .checkBox {
+  background: no-repeat center url(../../img/Shape.png);
+  border: 1px solid #2196f3;
+}

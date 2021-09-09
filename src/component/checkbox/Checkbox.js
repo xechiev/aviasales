@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './Checkbox.scss'
+// import React from 'react';
+// // import PropTypes from 'prop-types';
+// import classNames from 'classnames';
+// import classes from './Checkbox.module.scss';
 
-function Checkbox({ value }) {
-  const [check, setCheck] = useState(false);
+// export default function Checkbox({ name, id, check }) {
+//   return (
+//     <label className={classNames(classes.check, classes.option)}>
+//       <input
+//         type="checkbox"
+//         id={id}
+//         className={classNames(classes.checkInput, classes.option)}
+//         defaultChecked={check}
+//       />
+//       <span className={classes.checkBox} />
+//       <span className={classes.value}>{name}</span>
+//     </label>
+//   );
+// }
 
-  return (
-    <label className="check option">
-      <input 
-        type="checkbox" 
-        className="check_input option" 
-        checked={check} 
-        onChange={() => { setCheck(!check) }} 
-      />
-      <span className="check_box" />
-      <span className="value">{value}</span>
-    </label>
-  )
-}
-
-export default Checkbox;
-
-Checkbox.propTypes = {
-  value: PropTypes.string.isRequired,
-}
+// Checkbox.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   id: PropTypes.number.isRequired,
+//   check: PropTypes.bool.isRequired,
+//   toggleAll: PropTypes.func.isRequired,
+// }

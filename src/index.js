@@ -1,7 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './component/reducer';
 import App from './component/app/App';
 
 import './index.scss';
-// eslint-disable-next-line no-use-before-define
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const store = createStore(reducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);

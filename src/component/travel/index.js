@@ -1,2 +1,3 @@
-import Travel from "./Travel";
+import Travel from './Travel';
+
 export default Travel;
