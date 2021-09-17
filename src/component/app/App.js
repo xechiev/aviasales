@@ -1,19 +1,22 @@
 import React from 'react';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { Tab, Row, Nav } from 'react-bootstrap';
 import Header from '../header/Header';
 import TicketList from '../ticketList/TicketList';
 import Filter from '../filter/Filter';
 import classes from './App.module.scss';
 
-export default function App() {
+function App({ initState }) {
+  const { tabs, filters } = initState;
+
   const handler = (key) => {
-    console.log(key);
+    console.log(tabs, filters);
   };
   return (
     <div className={classes.app}>
       <Header />
       <div className={classes.body}>
-        <Filter />
+        <Filter filters={filters} />
         <div className={classes.right}>
           <Tab.Container
             id="left-tabs-example"
@@ -41,3 +44,5 @@ export default function App() {
     </div>
   );
 }
+const mapStateToProps = (state) => ({ initState: state });
+export default connect(mapStateToProps)(App)

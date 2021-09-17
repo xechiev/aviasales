@@ -2,34 +2,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import * as actions from '../actions';
+import * as actions from '../../redux/actions/actions'
 import classes from './Filter.module.scss';
 
-function Filter({ initState, toggleOne, toggleAll }) {
-  console.log(actions);
+function Filter({ initState, setFilters }) {
+  const onSelectFilter = (item) => {
+		setFilters(item)
+	};
+
   return (
     <div className={classes.filter}>
       <div className={classes.title}>Количество пересадок</div>
-      <div className={classes.transfers}>
-        {
-          initState.value.map((item) => (
-            <label 
-              className={classNames(classes.check, classes.option)} 
-              key={item.id}
-              onClick={() => toggleAll()}
-            >
+      <ul className={classes.list}>
+        {initState.filters.map((item, i) => (
+          <li key={item.id}>
+            <label className={classNames(classes.check, classes.option)}>
               <input
                 type="checkbox"
-                id={item.id}
-                onClick={console.log(initState.value)}
+                id={i}
+                onChange={() => onSelectFilter(item)}
+                checked={item.isChecked}
                 className={classNames(classes.checkInput, classes.option)}
               />
               <span className={classes.checkBox} />
               <span className={classes.value}>{item.name}</span>
             </label>
-          ))
-        }
-      </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
