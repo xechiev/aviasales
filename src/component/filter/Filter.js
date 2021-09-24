@@ -1,20 +1,22 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import * as actions from '../../redux/actions/actions'
+import { setFilters } from '../../redux/actions/actions';
 import classes from './Filter.module.scss';
 
-function Filter({ initState, setFilters }) {
+function Filter({ array }) {
+  const dispatch = useDispatch();
+
   const onSelectFilter = (item) => {
-		setFilters(item)
+		dispatch(setFilters(item));
 	};
 
   return (
     <div className={classes.filter}>
       <div className={classes.title}>Количество пересадок</div>
       <ul className={classes.list}>
-        {initState.filters.map((item, i) => (
+        {array.map((item, i) => (
           <li key={item.id}>
             <label className={classNames(classes.check, classes.option)}>
               <input
@@ -34,6 +36,4 @@ function Filter({ initState, setFilters }) {
   );
 }
 
-const mapStateToProps = (state) => ({ initState: state });
-
-export default connect(mapStateToProps, actions)(Filter);
+export default Filter;

@@ -1,48 +1,32 @@
-import React from 'react';
-import { useDispatch, useSelector, connect } from 'react-redux';
-import { Tab, Row, Nav } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTicketsData } from '../../redux/asyncActions/asyncActions';
 import Header from '../header/Header';
+import Tabs from '../tabs/Tabs';
 import TicketList from '../ticketList/TicketList';
 import Filter from '../filter/Filter';
 import classes from './App.module.scss';
 
-function App({ initState }) {
-  const { tabs, filters } = initState;
+function App() {
+  const dispatch = useDispatch();
+  const state = useSelector(({ reducer }) => reducer);
+  const { filters, tabs, dataTicket } = state;
+	useEffect(() => {
+    dispatch(getTicketsData());
+	}, [dispatch]);
 
-  const handler = (key) => {
-    console.log(tabs, filters);
-  };
   return (
     <div className={classes.app}>
       <Header />
       <div className={classes.body}>
-        <Filter filters={filters} />
+        <Filter array={filters} />
         <div className={classes.right}>
-          <Tab.Container
-            id="left-tabs-example"
-            defaultActiveKey="1"
-            onSelect={handler}
-          >
-            <Row className={classes.tabs}>
-              <Nav variant="pills" className="flex-row">
-                <Nav.Item>
-                  <Nav.Link eventKey="1" className={classes.tab}>
-                    Самый дешевый
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="2" className={classes.tab}>
-                    Самый быстрый
-                  </Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Row>
-          </Tab.Container>
+          <Tabs tabs={tabs} />
           <TicketList />
         </div>
       </div>
     </div>
   );
 }
-const mapStateToProps = (state) => ({ initState: state });
-export default connect(mapStateToProps)(App)
+
+export default App;
