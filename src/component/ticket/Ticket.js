@@ -4,20 +4,19 @@ import Flying from '../flying/Flying';
 
 import classes from './Ticket.module.scss';
 
-export default function Ticket() {
+export default function Ticket({ price, carrier, segments }) {
   return (
     <div className={classes.ticket}>
       <div className={classes.header}>
         <div className={classes.price}>
-          13 400
-          <span>&nbsp;P</span>
+          {`${price.toLocaleString()} P`}
         </div>
         <div className={classes.logo}>
-          <img src={S7logo} className={classes.plane} alt="S7logo" />
+          <img src={`https://pics.avs.io/99/36/${carrier}.png`} className={classes.plane} alt={carrier} />
         </div>
       </div>
       <div className={classes.info}>
-        <Flying />
+        <Flying segments={segments} />
       </div>
     </div>
   );

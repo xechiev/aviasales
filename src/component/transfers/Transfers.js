@@ -1,11 +1,16 @@
 import React from 'react';
+import { correctEndingForm } from '../../utils/index';
 import classes from './Transfers.module.scss';
 
-export default function Transfers() {
+export default function Transfers({ stops }) {
   return (
     <div className={classes.transfers}>
-      <div className={classes.count}>1 ПЕРЕСАДКА</div>
-      <div className={classes.city}>KUL</div>
+      <div className={classes.count}>
+        {correctEndingForm(stops.length)}
+      </div>
+      <div className={classes.city}>
+        {stops.join(', ')}
+      </div>
     </div>
   );
 }

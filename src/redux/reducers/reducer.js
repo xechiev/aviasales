@@ -32,7 +32,7 @@ function reducer(state = initialState, action) {
 		case 'SET_TABS':
 			return {
 				...state,
-				tabs: action.payload,
+				tabs: setTabsState(action.item, state.tabs),
 			}
 
 		case 'SET_FILTERS':
@@ -78,4 +78,17 @@ const updatedFilter = (item, array) => {
 		});
 	}
 	return updatedArray
+}
+
+const setTabsState = (item, tabs) => {
+  const changeTabs = tabs.map((tab) => {
+    if (tab.id === item.id) {
+      tab.isChecked = true;
+      return tab
+    }
+    tab.isChecked = false;
+    return tab
+  })
+
+	return changeTabs
 }

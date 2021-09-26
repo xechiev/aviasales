@@ -1,32 +1,33 @@
-// const updatedFilter = (item, array) => {
-// 	let updatedArray;
-// 	let count = 0;
-// 	if (item.id === 1) {
-// 		const status = !item.isChecked;
-// 		updatedArray = array.map((filter) => {
-// 			filter.isChecked = status;
-// 			return filter;
-// 		});
-// 	} else {
-// 		updatedArray = array.map((filter) => {
-// 			if (filter.isChecked && filter.id === 1) { 
-// 				filter.isChecked = false;
-// 			}	
-// 			if (item.id === filter.id) {
-// 				filter.isChecked = !filter.isChecked;
-// 			}
-// 			if (filter.isChecked && filter.id !== 1) {
-// 				++count
-// 			}
-// 			return filter;
-// 		});
-// 	}
+import add from 'date-fns/add';
+import format from 'date-fns/format';
 
-// 	if (count === 4) {
-// 		updatedArray = array.map((filter) => {
-// 			filter.isChecked = true;
-// 			return filter;
-// 		});
-// 	}
-// 	return updatedArray
-// };
+export const flightTimeConverter = (date, second) => {
+	const time = add(new Date(date), {
+		seconds: second,
+	});
+
+	return `${format(new Date(date), 'HH:mm')} - ${format(new Date(time), 'HH:mm')}`;
+}
+
+
+const addZero = (x) => (x < 10 ? `0${x}` : x)
+
+export const getTimeFromMins = (mins) => {
+	const hours = Math.trunc(mins / 60);
+	const minutes = mins % 60;
+
+	return `${addZero(hours)}ч ${addZero(minutes)}м`;
+};
+
+export const correctEndingForm = (value) => {
+	switch (value) {
+		case 0:
+			return 'Без пересадок';
+		case 1:
+			return '1 пересадка';
+		case 2:
+			return '2 пересадки';
+		default:
+			return `${value} пересадки`;
+	}
+};
