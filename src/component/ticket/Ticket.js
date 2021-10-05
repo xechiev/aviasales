@@ -1,5 +1,4 @@
 import React from 'react';
-import S7logo from '../../img/S7logo.png';
 import Flying from '../flying/Flying';
 
 import classes from './Ticket.module.scss';
@@ -19,5 +18,5 @@ export default function Ticket({ price, carrier, segments }) {
         <Flying segments={segments} />
       </div>
     </div>
-  );
+  )
 }

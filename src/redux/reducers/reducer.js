@@ -1,17 +1,18 @@
 const initialState = {
-  dataTicket: [],
-	isLoaded: false,
   tabs: [
 		{	id: 1, name: 'Самый дешевый',	isChecked: true },
 		{ id: 2, name: 'Самый быстрый',	isChecked: false },
   ],
   filters: [
-		{ id: 1, name: 'Все', isChecked: true },
-		{ id: 2, name: 'Без пересадок', isChecked: true },
-		{ id: 3, name: '1 пересадка', isChecked: true },
-		{ id: 4, name: '2 пересадки', isChecked: true },
-		{ id: 5, name: '3 пересадки', isChecked: true },
+		{ id: 1, value: -1, name: 'Все', isChecked: true },
+		{ id: 2, value: 0, name: 'Без пересадок', isChecked: true },
+		{ id: 3, value: 1, name: '1 пересадка', isChecked: true },
+		{ id: 4, value: 2, name: '2 пересадки', isChecked: true },
+		{ id: 5, value: 3, name: '3 пересадки', isChecked: true },
   ],
+	dataTicket: [],
+	isLoaded: false,
+	isError: false,
 }
 
 function reducer(state = initialState, action) {
@@ -40,6 +41,11 @@ function reducer(state = initialState, action) {
 				...state,
 				filters: updatedFilter(action.item, state.filters),
 			};
+		case 'SET_ERROR':
+			return {
+				...state,
+				isError: action.payload
+			};	
 
 		default:
 			return state;

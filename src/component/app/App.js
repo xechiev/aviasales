@@ -10,7 +10,7 @@ import classes from './App.module.scss';
 function App() {
   const dispatch = useDispatch();
   const state = useSelector(({ reducer }) => reducer);
-  const { filters, tabs, isLoaded } = state;
+  const { filters, tabs } = state;
   
 	useEffect(() => {
     dispatch(getTicketsData());
@@ -23,7 +23,7 @@ function App() {
         <Filter array={filters} />
         <div className={classes.right}>
           <Tabs tabs={tabs} />
-          <TicketList state={state} isLoaded={isLoaded} />
+          <TicketList state={state} />
         </div>
       </div>
     </div>
