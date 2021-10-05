@@ -11,10 +11,10 @@ function App() {
   const dispatch = useDispatch();
   const state = useSelector(({ reducer }) => reducer);
   const { filters, tabs } = state;
-  
-	useEffect(() => {
+
+  useEffect(() => {
     dispatch(getTicketsData());
-	}, [dispatch]);
+  }, [dispatch]);
 
   return (
     <div className={classes.app}>

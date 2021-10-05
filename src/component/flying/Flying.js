@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FromTo from '../fromTo/FromTo';
 import Travel from '../travel/Travel';
 import Transfers from '../transfers';
@@ -19,3 +20,6 @@ export default function Flying({ segments }) {
   );
 }
 
+Flying.propTypes = {
+  segments: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

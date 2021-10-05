@@ -25,7 +25,6 @@
   ],
   "rules": {
       "import/prefer-default-export": "off",
-      "react/prop-types": 0,
       "comma-dangle": 0,
       "arrow-body-style": ["error", "as-needed"],
       "no-return-await": "error",
@@ -40,7 +39,7 @@
       "no-use-before-define": 0,
       "block-spacing": "error",
       "no-unused-vars": 0,
-      "quote-props": ["error", "consistent"],
+    //   "quote-props": ["error", "consistent"],
       "spaced-comment": ["error", "always"],
       "semi": "off",
       "linebreak-style": 0,

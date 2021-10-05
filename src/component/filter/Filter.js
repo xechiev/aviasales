@@ -1,16 +1,17 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { setFilters } from '../../redux/actions/actions';
 import classes from './Filter.module.scss';
 
-function Filter({ array }) {
+export default function Filter({ array }) {
   const dispatch = useDispatch();
 
   const onSelectFilter = (item) => {
-		dispatch(setFilters(item));
-	};
+    dispatch(setFilters(item));
+  };
 
   return (
     <div className={classes.filter}>
@@ -36,4 +37,6 @@ function Filter({ array }) {
   );
 }
 
-export default Filter;
+Filter.propTypes = {
+  array: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
