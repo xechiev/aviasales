@@ -16,10 +16,7 @@
   font-size: 12px;
   line-height: 12px;
 }
-// .transfers {
-//   display: flex;
-//   flex-direction: column;
-// }
+
 .list {
   padding-left: 0;
   display: flex;
@@ -64,4 +61,11 @@ li {
 .checkInput:checked + .checkBox {
   background: no-repeat center url(../../img/Shape.png);
   border: 1px solid #2196f3;
+}
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  .filter {
+    width: 96.5%;
+    margin-bottom: 20px;
+    margin-left: 32px;
+  }
 }

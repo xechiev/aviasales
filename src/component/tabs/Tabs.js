@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Tab, Row, Nav } from 'react-bootstrap';
 import { setTabs } from '../../redux/actions/actions';
-import classes from '../app/App.module.scss';
+import classes from './Tabs.module.scss';
 
 export default function Tabs({ tabs }) {
   const dispatch = useDispatch();
@@ -15,9 +15,9 @@ export default function Tabs({ tabs }) {
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="1">
       <Row className={classes.tabs}>
-        <Nav variant="pills" className="flex-row">
+        <Nav variant="pills" className={classes.pills}>
           {tabs.map((tab) => (
-            <Nav.Item key={tab.id} onClick={() => handler(tab)}>
+            <Nav.Item key={tab.id} className={classes.item} onClick={() => handler(tab)}>
               <Nav.Link eventKey={tab.id} className={classes.tab}>
                 {tab.name}
               </Nav.Link>

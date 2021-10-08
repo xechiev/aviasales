@@ -23,3 +23,8 @@
 .spin {
   margin-left: 200px !important;
 }
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  .ticket {
+    width: 95%;
+  }
+}

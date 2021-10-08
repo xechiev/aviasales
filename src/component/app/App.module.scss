@@ -1,47 +1,22 @@
 .app {
+  max-width: 778px;
   margin: 0 auto;
 }
 .body {
   display: flex;
-}
-.tabs {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
-  margin-left: 30px;
-  list-style-type: none;
+  width: 95%;
 }
 
 .right {
   display: flex;
   flex-direction: column;
 }
-.tab {
-  background: #ffffff;
-  border: 1px solid #dfe5ec;
-  box-sizing: border-box;
-  width: 252px;
-  height: 50px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 20px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: 15px 56px;
-  color: #4a4a4a;
+
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  .body {
+    flex-direction: column;
+  }
+  // .right {
+  //   width: 100%;
+  // }
 }
-// .active {
-//   background: #2196f3;
-//   color: #fff;
-// }
-// .btn_left {
-//   border-top-left-radius: 5px;
-//   border-bottom-left-radius: 5px;
-// }
-// .btn_right {
-//   border-top-right-radius: 5px;
-//   border-bottom-right-radius: 5px;
-// }
