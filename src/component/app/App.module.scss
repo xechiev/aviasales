@@ -1,22 +1,25 @@
 .app {
-  max-width: 778px;
+  max-width: 768px;
   margin: 0 auto;
 }
 .body {
   display: flex;
   width: 95%;
+  margin: 0 auto;
 }
 
 .right {
   display: flex;
   flex-direction: column;
+  margin-left: 30px;
 }
 
-@media screen and (min-width: 280px) and (max-width: 767px) {
+@media screen and (min-width: 400px) and (max-width: 767px) {
   .body {
     flex-direction: column;
   }
-  // .right {
-  //   width: 100%;
-  // }
+  .right {
+    width: 100%;
+    margin-left: 0;
+  }
 }

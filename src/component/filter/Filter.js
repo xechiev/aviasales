@@ -14,25 +14,27 @@ export default function Filter({ array }) {
   };
 
   return (
-    <div className={classes.filter}>
-      <div className={classes.title}>Количество пересадок</div>
-      <ul className={classes.list}>
-        {array.map((item, i) => (
-          <li key={item.id}>
-            <label className={classNames(classes.check, classes.option)}>
-              <input
-                type="checkbox"
-                id={i}
-                onChange={() => onSelectFilter(item)}
-                checked={item.isChecked}
-                className={classNames(classes.checkInput, classes.option)}
-              />
-              <span className={classes.checkBox} />
-              <span className={classes.value}>{item.name}</span>
-            </label>
-          </li>
-        ))}
-      </ul>
+    <div className={classes.wrapper}>
+      <div className={classes.filter}>
+        <div className={classes.title}>Количество пересадок</div>
+        <ul className={classes.list}>
+          {array.map((item, i) => (
+            <li key={item.id}>
+              <label className={classNames(classes.check, classes.option)}>
+                <input
+                  type="checkbox"
+                  id={i}
+                  onChange={() => onSelectFilter(item)}
+                  checked={item.isChecked}
+                  className={classNames(classes.checkInput, classes.option)}
+                />
+                <span className={classes.checkBox} />
+                <span className={classes.value}>{item.name}</span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

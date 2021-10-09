@@ -2,6 +2,9 @@
   margin-bottom: 20px;
   list-style-type: none;
 }
+.ticketList {
+  padding-left: 0;
+}
 .alert {
   width: 400px !important;
   margin-left: 6rem !important;
@@ -10,5 +13,6 @@
   margin-left: 200px !important;
 }
 
-@media screen and (min-width: 280px) and (max-width: 767px) {
+@media screen and (min-width: 400px) and (max-width: 767px) {
+
 }

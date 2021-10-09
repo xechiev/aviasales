@@ -22,7 +22,7 @@ export default function TicketList({ state }) {
   return isError ? (
     <ErrorServer />
   ) : (
-    <ul className={classes.list}>
+    <ul className={classes.ticketList}>
       {!isCheckedFilters.length ? <NoTicket /> : ' '}
       {isLoaded ? (
         dataSorted.map((ticket) => (
