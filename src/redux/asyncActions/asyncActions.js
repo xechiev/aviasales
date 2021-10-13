@@ -12,16 +12,18 @@ export const setError = (payload) => ({ type: "SET_ERROR", payload });
 const newApiService = new ApiService();
 
 const getTicketsData = (dispatch, sessionID) => {
-  dispatch(setLoaded(true));
   newApiService
     .getTicketData(sessionID)
     .then((res) => {
       if (!res.stop) {
         getTicketsData(dispatch, sessionID);
+        dispatch(setLoaded(true));
         // dispatch(setLoaded(true));
         dispatch(setTicketsData(res.tickets));
+      } else {
+        dispatch(setLoaded(false));
       }
-      dispatch(setLoaded(false));
+      // dispatch(setLoaded(false));
     })
     .catch(dispatch(setTicketsData([])), dispatch(setLoaded(false)));
 };
