@@ -1,3 +1,3 @@
-import Transfers from './Transfers';
+import Transfers from "./Transfers";
 
 export default Transfers;

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Flying from '../flying/Flying';
+import React from "react";
+import PropTypes from "prop-types";
+import Flying from "../flying/Flying";
 
-import classes from './Ticket.module.scss';
+import classes from "./Ticket.module.scss";
 
 export default function Ticket({ price, carrier, segments }) {
   return (

@@ -1,14 +1,14 @@
-import add from 'date-fns/add';
-import format from 'date-fns/format';
+import add from "date-fns/add";
+import format from "date-fns/format";
 
 export const flightTimeConverter = (date, second) => {
   const time = add(new Date(date), {
     seconds: second,
   });
 
-  return `${format(new Date(date), 'HH:mm')} - ${format(
+  return `${format(new Date(date), "HH:mm")} - ${format(
     new Date(time),
-    'HH:mm'
+    "HH:mm"
   )}`;
 };
 
@@ -24,11 +24,11 @@ export const getTimeFromMins = (mins) => {
 export const correctEndingForm = (value) => {
   switch (value) {
     case 0:
-      return 'Без пересадок';
+      return "Без пересадок";
     case 1:
-      return '1 пересадка';
+      return "1 пересадка";
     case 2:
-      return '2 пересадки';
+      return "2 пересадки";
     default:
       return `${value} пересадки`;
   }
@@ -69,7 +69,7 @@ export const filteredTickets = (filtersTickets, data) => {
     if (filterTicketValue.includes(transfer[0].length)) {
       return item;
     }
-    return '';
+    return "";
   });
 
   return result;

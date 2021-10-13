@@ -1,9 +1,9 @@
-import React from 'react';
-import { Alert } from 'antd';
+import React from "react";
+import { Alert } from "antd";
 
-import classes from './AlertMessage.module.scss';
+import classes from "./AlertMessage.module.scss";
 
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 
 export const ErrorServer = () => (
   <Alert

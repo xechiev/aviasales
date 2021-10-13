@@ -1,47 +1,47 @@
 const initialState = {
   tabs: [
-    { id: 1, name: 'Самый дешевый', isChecked: true },
-    { id: 2, name: 'Самый быстрый', isChecked: false },
+    { id: 1, name: "Самый дешевый", isChecked: true },
+    { id: 2, name: "Самый быстрый", isChecked: false },
   ],
   filters: [
-    { id: 1, value: -1, name: 'Все', isChecked: true },
-    { id: 2, value: 0, name: 'Без пересадок', isChecked: true },
-    { id: 3, value: 1, name: '1 пересадка', isChecked: true },
-    { id: 4, value: 2, name: '2 пересадки', isChecked: true },
-    { id: 5, value: 3, name: '3 пересадки', isChecked: true },
+    { id: 1, value: -1, name: "Все", isChecked: true },
+    { id: 2, value: 0, name: "Без пересадок", isChecked: true },
+    { id: 3, value: 1, name: "1 пересадка", isChecked: true },
+    { id: 4, value: 2, name: "2 пересадки", isChecked: true },
+    { id: 5, value: 3, name: "3 пересадки", isChecked: true },
   ],
   dataTicket: [],
   isLoaded: false,
   isError: false,
+  stop: false,
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'SET_TICKETS_DATA':
-      return {
-        ...state,
-        dataTicket: action.payload,
-        isLoaded: true,
-      };
+    case "SET_TICKETS_DATA": {
+      const res = state.dataTicket.push(...action.payload);
+      const newState = { ...state, ...res };
+      return newState;
+    }
 
-    case 'SET_LOADED':
+    case "SET_LOADED":
       return {
         ...state,
         isLoaded: action.payload,
       };
 
-    case 'SET_TABS':
+    case "SET_TABS":
       return {
         ...state,
         tabs: setTabsState(action.item, state.tabs),
       };
 
-    case 'SET_FILTERS':
+    case "SET_FILTERS":
       return {
         ...state,
         filters: updatedFilter(action.item, state.filters),
       };
-    case 'SET_ERROR':
+    case "SET_ERROR":
       return {
         ...state,
         isError: action.payload,

@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Spin } from 'antd';
-import { ErrorServer, NoTicket } from '../alertMessage/AlertMessage';
-import { sortedTicketsByTab, filteredTickets } from '../../utils';
-import Ticket from '../ticket/Ticket';
+import React from "react";
+import PropTypes from "prop-types";
+import { Spin } from "antd";
+import { ErrorServer, NoTicket } from "../alertMessage/AlertMessage";
+import { sortedTicketsByTab, filteredTickets } from "../../utils";
+import Ticket from "../ticket/Ticket";
 
-import classes from './TicketList.module.scss';
-import 'antd/dist/antd.css';
+import classes from "./TicketList.module.scss";
+import "antd/dist/antd.css";
 
 export default function TicketList({ state }) {
   const { dataTicket, isLoaded, isError, filters, tabs } = state;
@@ -23,16 +23,13 @@ export default function TicketList({ state }) {
     <ErrorServer />
   ) : (
     <ul className={classes.ticketList}>
-      {!isCheckedFilters.length ? <NoTicket /> : ' '}
-      {isLoaded ? (
-        dataSorted.map((ticket) => (
-          <li className={classes.ticket} key={Math.random()}>
-            <Ticket {...ticket} isLoaded={isLoaded} />
-          </li>
-        ))
-      ) : (
-        <Spin tip="Loading..." className={classes.spin} />
-      )}
+      {!isCheckedFilters.length ? <NoTicket /> : " "}
+      {isLoaded ? <Spin tip="Loading..." className={classes.spin} /> : " "}
+      {dataSorted.slice(0, 5).map((ticket) => (
+        <li className={classes.ticket} key={Math.random()}>
+          <Ticket {...ticket} isLoaded={isLoaded} />
+        </li>
+      ))}
     </ul>
   );
 }

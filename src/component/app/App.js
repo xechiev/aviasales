@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTicketsData } from '../../redux/asyncActions/asyncActions';
-import Header from '../header/Header';
-import Tabs from '../tabs/Tabs';
-import TicketList from '../ticketList/TicketList';
-import Filter from '../filter/Filter';
-import classes from './App.module.scss';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTicketsData } from "../../redux/asyncActions/asyncActions";
+import Header from "../header/Header";
+import Tabs from "../tabs/Tabs";
+import TicketList from "../ticketList/TicketList";
+import Filter from "../filter/Filter";
+import classes from "./App.module.scss";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function App() {
   const { filters, tabs } = state;
 
   useEffect(() => {
-    dispatch(getTicketsData());
+    dispatch(getAllTicketsData());
   }, [dispatch]);
 
   return (

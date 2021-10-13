@@ -1,6 +1,6 @@
-import React from 'react';
-import Logo from '../../img/Logo.svg';
-import classes from './Header.module.scss';
+import React from "react";
+import Logo from "../../img/Logo.svg";
+import classes from "./Header.module.scss";
 
 export default function Header() {
   return (

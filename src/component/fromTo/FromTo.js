@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { flightTimeConverter } from '../../utils/index';
-import classes from './FromTo.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import { flightTimeConverter } from "../../utils/index";
+import classes from "./FromTo.module.scss";
 
 export default function FromTo({ origin, destination, date, duration }) {
   return (

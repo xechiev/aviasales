@@ -39,10 +39,11 @@
       "no-use-before-define": 0,
       "block-spacing": "error",
       "no-unused-vars": 0,
+      "quotes": ["error", "double"],
     //   "quote-props": ["error", "consistent"],
       "spaced-comment": ["error", "always"],
       "semi": "off",
-      "linebreak-style": 0,
+    //   "linebreak-style": 0,
       "no-param-reassign": "off",
       "no-trailing-spaces": "off",
       "no-tabs": "off",
@@ -78,7 +79,8 @@
           }
       ],
       "object-curly-newline": ["error", { "consistent": true }],
-      "operator-linebreak": ["error", "after"]  
+      "operator-linebreak": ["error", "after"],
+      "implicit-arrow-linebreak": ["error", "beside"]
   },
   "settings": {
       "react": {
