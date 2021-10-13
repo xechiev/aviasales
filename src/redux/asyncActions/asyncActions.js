@@ -18,7 +18,6 @@ const getTicketsData = (dispatch, sessionID) => {
       if (!res.stop) {
         getTicketsData(dispatch, sessionID);
         dispatch(setLoaded(true));
-        // dispatch(setLoaded(true));
         dispatch(setTicketsData(res.tickets));
       } else {
         dispatch(setLoaded(false));
