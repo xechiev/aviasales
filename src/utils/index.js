@@ -48,17 +48,11 @@ export const sortTicketByTime = (item1, item2) => {
   return -1;
 };
 
-export const sortedTicketsByTab = (id, data) => {
-  if (id === 1) {
-    const result = data.sort(sortTicketByPrice);
-    return result;
-  }
-  if (id === 2) {
-    const result = data.sort(sortTicketByTime);
-    return result;
-  }
-  return data;
+const sortingWays = {
+  1: sortTicketByPrice,
+  2: sortTicketByTime,
 };
+export const sortedTicketsByTab = (id, data) => data.sort(sortingWays[id]);
 
 export const filteredTickets = (filtersTickets, data) => {
   const filterTicketValue = filtersTickets.map((e) => e.value);

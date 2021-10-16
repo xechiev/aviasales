@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { setFilters } from "../../redux/actions/actions";
 import classes from "./Filter.module.scss";
 
-export default function Filter({ array }) {
+export default function Filter() {
+  const state = useSelector(({ reducer }) => reducer);
+
+  const { filters } = state;
+
   const dispatch = useDispatch();
 
   const onSelectFilter = (item) => {
@@ -18,7 +22,7 @@ export default function Filter({ array }) {
       <div className={classes.filter}>
         <div className={classes.title}>Количество пересадок</div>
         <ul className={classes.list}>
-          {array.map((item, i) => (
+          {filters.map((item, i) => (
             <li key={item.id}>
               <label className={classNames(classes.check, classes.option)}>
                 <input
@@ -38,7 +42,3 @@ export default function Filter({ array }) {
     </div>
   );
 }
-
-Filter.propTypes = {
-  array: PropTypes.arrayOf(PropTypes.object).isRequired,
-};

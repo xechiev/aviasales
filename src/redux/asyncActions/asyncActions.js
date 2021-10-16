@@ -1,4 +1,4 @@
-import ApiService from "../../component/api/ApiService";
+import ApiService from "../../api/ApiService";
 
 export const setTicketsData = (items) => ({
   type: "SET_TICKETS_DATA",

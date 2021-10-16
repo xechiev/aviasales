@@ -55,35 +55,26 @@ function reducer(state = initialState, action) {
 export default reducer;
 
 const updatedFilter = (item, array) => {
-  let updatedArray;
-  let count = 0;
-  if (item.id === 1) {
-    const status = !item.isChecked;
-    updatedArray = array.map((filter) => {
-      filter.isChecked = status;
-      return filter;
-    });
+  const status = !item.isChecked;
+
+  const filterIndex = array.findIndex((num) => num.id === item.id);
+
+  if (filterIndex > 0) {
+    array[0].isChecked = false;
+    array[filterIndex].isChecked = !array[filterIndex].isChecked;
   } else {
-    updatedArray = array.map((filter) => {
-      if (filter.isChecked && filter.id === 1) {
-        filter.isChecked = false;
-      }
-      if (item.id === filter.id) {
-        filter.isChecked = !filter.isChecked;
-      }
-      if (filter.isChecked && filter.id !== 1) {
-        ++count;
-      }
-      return filter;
+    array.forEach((filter, index) => {
+      array[index] = { ...filter, isChecked: status };
     });
   }
-  if (count === 4) {
-    updatedArray = array.map((filter) => {
-      filter.isChecked = true;
-      return filter;
-    });
+  const filteredArr = array.filter((f) => f.id > 1);
+
+  if (filteredArr.every((e) => e.isChecked)) {
+    array.forEach((el) => (el.isChecked = true));
+    return array;
   }
-  return updatedArray;
+
+  return array;
 };
 
 const setTabsState = (item, tabs) => {

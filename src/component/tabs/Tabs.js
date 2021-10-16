@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Tab, Row, Nav } from "react-bootstrap";
 import { setTabs } from "../../redux/actions/actions";
 import classes from "./Tabs.module.scss";
 
-export default function Tabs({ tabs }) {
+export default function Tabs() {
+  const state = useSelector(({ reducer }) => reducer);
+
+  const { tabs } = state;
+
   const dispatch = useDispatch();
 
   const handler = (item) => {
@@ -32,7 +36,3 @@ export default function Tabs({ tabs }) {
     </Tab.Container>
   );
 }
-
-Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-};

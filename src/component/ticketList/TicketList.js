@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Spin } from "antd";
 import { ErrorServer, NoTicket } from "../alertMessage/AlertMessage";
@@ -8,7 +9,9 @@ import Ticket from "../ticket/Ticket";
 import classes from "./TicketList.module.scss";
 import "antd/dist/antd.css";
 
-export default function TicketList({ state }) {
+export default function TicketList() {
+  const state = useSelector(({ reducer }) => reducer);
+
   const { dataTicket, isLoaded, isError, filters, tabs } = state;
 
   const isCheckedFilters = filters.filter((filter) => filter.isChecked);
@@ -33,13 +36,3 @@ export default function TicketList({ state }) {
     </ul>
   );
 }
-
-TicketList.propTypes = {
-  state: PropTypes.shape({
-    dataTicket: PropTypes.arrayOf(PropTypes.object).isRequired,
-    tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-    filters: PropTypes.arrayOf(PropTypes.object).isRequired,
-    isLoaded: PropTypes.bool.isRequired,
-    isError: PropTypes.bool.isRequired,
-  }).isRequired,
-};
